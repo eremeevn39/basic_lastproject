@@ -1,0 +1,19 @@
+RESTORING STEPS FOR 3 servers:
+	1. git clone git@github.com:eremeevn39/basic_lastproject.git && cd basic_lastproject && sh 1-first-srv.sh
+	
+	2. git clone git@github.com:eremeevn39/basic_lastproject.git && cd basic_lastproject && sh 2-second-srv.sh
+	mysql
+	CHANGE MASTER TO MASTER_HOST='10.44.0.27', MASTER_USER='repl', MASTER_PASSWORD='3993', MASTER_LOG_FILE='master1-bin.000002', MASTER_LOG_POS=4171;
+	START SLAVE;
+	show slave status\G
+	
+	3. git clone git@github.com:eremeevn39/basic_lastproject.git && cd basic_lastproject && sh 3-rd-srv.sh
+	mysql
+	CHANGE MASTER TO MASTER_HOST='10.44.0.27', MASTER_USER='repl', MASTER_PASSWORD='3993', MASTER_LOG_FILE='master1-bin.000002', MASTER_LOG_POS=4171;
+	START SLAVE;
+	show slave status\G
+	
+CONFIGURING MONITORING:
+http://10.44.0.27:3000/login (admin/admin)
+	1. Add datasource http://10.44.0.27:9090
+	2. Add dashboard: 1860
