@@ -59,3 +59,4 @@ systemctl enable grafana-server.service
 mysql_secure_installation
 mysql -uroot -p3993 < main.db
 mysqldump wordpress < 2021-12-03_wordpress.db
+systemctl restart mariadb
